@@ -11,7 +11,10 @@ import (
 func main() {
 	http.HandleFunc("/calc", handler.CalculatorHandler)
 
-	fmt.Println("Server running at http://localhost:8080/test")
+	fs := http.FileServer(http.Dir("./static"))
+	http.Handle("/", fs)
+
+	fmt.Println("Server running at http://localhost:8080")
 	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
 		log.Fatal(err)
