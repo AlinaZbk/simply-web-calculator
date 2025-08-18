@@ -14,7 +14,7 @@ type CalculatorRequest struct {
 }
 
 type CalculatorResponse struct {
-	Result float64 `jsone:"result"`
+	Result float64 `jsone:"result,omitempty"`
 	Error  string  `json:"error,omitempty"`
 }
 
