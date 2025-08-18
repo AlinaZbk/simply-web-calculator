@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Калькулятор</title>
+</head>
+<body>
+  <h1>Простой калькулятор</h1>
+  <form id="calcForm">
+    <input type="number" id="a" placeholder="Число A" required />
+    
+    <select id="op">
+      <option value="add">+</option>
+      <option value="sub">-</option>
+      <option value="mul">*</option>
+      <option value="div">/</option>
+    </select>
+    
+    <input type="number" id="b" placeholder="Число B" required />
+    
+    <button type="submit">Вычислить</button>
+  </form>
+  
+  <pre id="result"></pre>
+
+  <script>
+    document.getElementById("calcForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const a = parseFloat(document.getElementById("a").value);
+      const b = parseFloat(document.getElementById("b").value);
+      const op = document.getElementById("op").value;
+
+      const res = await fetch("/calc", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({a: a, b: b, op: op})
+      });
+
+      const data = await res.json();
+      document.getElementById("result").textContent = JSON.stringify(data, null, 2);
+    });
+  </script>
+</body>
+</html>
