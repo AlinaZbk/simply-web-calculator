@@ -18,11 +18,7 @@ ________
 https://github.com/AlinaZbk/simply-web-calculator.git
 cd simply-web-calculator
 ```
-2. Инициализация Go-модуля
-```bash
-go mod init calculator
-```
-3. Запуск сервера
+2. Запуск сервера
 ```bash
 go run main.go
 ```
