@@ -40,3 +40,8 @@ calculator/
  │    └── calculator_handler.go    
  └── static/              *# фронтенд (index.html)*   
   _    └── index.html    
+
+---
+### Автор
+Alina Zubko
+https://github.com/AlinaZbk
